@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Optional
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.responses import RedirectResponse
 
 from .backends.base import Transcriber
 from .config import Settings, get_settings
@@ -49,6 +50,11 @@ def get_transcriber() -> Transcriber:
         s.cpu_threads,
         temperature=s.temperature,
     )
+
+
+@app.get("/")
+def root():
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health")
