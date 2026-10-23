@@ -1,0 +1,36 @@
+Software versions
+  python           3.14.7
+  platform         Windows-11-10.0.26200-SP0
+  faster_whisper   1.2.1
+  ctranslate2      4.8.3
+  av               18.1.0
+  jiwer            4.0.0
+
+Model base on cpu (int8), 5 runs per configuration
+Clips: 3
+
+  te_in_00000.wav        lang=te  mode=forced threads=auto   decoding=default     -> 5 UNIQUE     (33.41s/run)
+        'چThALAs岀Dhar Paulu Paallu a'
+        '۔ ۔ ۔'
+        'नाला सःनएर बालो प़़़ मच भिषे बूप़ हैं आप परीर होणा कर कोब है  नी ऍना एब और लिवाई वाः नवा'
+        'फूबचालाफः सबणर बालो विदेथ सालो वबचाबप विद टराफ़िषर वबदा साला लाफ़को रहीन ðका त हैसाले वब'
+        'త్పన్పన్పతమలాా త్పా తునెఅపాపన్పయన్పఁన్రి దోపామక\u0c3aూఠధాపా తిపూపా ర్డూపాన్ా ర్మాయన్న్ స్మేమా'
+  hi_in_00000.wav        lang=hi  mode=forced threads=auto   decoding=default     -> IDENTICAL    (4.56s/run)
+  en_us_00000.wav        lang=en  mode=forced threads=auto   decoding=default     -> IDENTICAL    (2.12s/run)
+  te_in_00000.wav        lang=te  mode=forced threads=auto   decoding=no-fallback -> IDENTICAL    (11.46s/run)
+  hi_in_00000.wav        lang=hi  mode=forced threads=auto   decoding=no-fallback -> IDENTICAL    (6.08s/run)
+  en_us_00000.wav        lang=en  mode=forced threads=auto   decoding=no-fallback -> IDENTICAL    (2.59s/run)
+  te_in_00000.wav        lang=te  mode=forced threads=single decoding=default     -> 5 UNIQUE     (67.49s/run)
+        'ھا لா näch چیல کر لیے مجھے چیلا کر ہوا کریں گے  ھا کیا پہا کریں گے gema İکھا کریں گے  ھا'
+        'ھا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہا ہ'
+        'ہیں ھاeschலも my health goal.  ھاaper haso  ھا dziy  ھاپ  も  お  Money  Lo  ھa  ھا  ھ  ھ  '
+        'गाला सольз थोचानर विए यहाण कूलो इिः सहिर हम आजँ क्मल लहु़ विऍितका व़ारा हुषात �änderजे ا'
+        'がम आला सब्रो बालो पेद धसाल๊ हो वब आप हो आपर or fro वास ःज वबद हाद versa  लoukach agrear '
+  hi_in_00000.wav        lang=hi  mode=forced threads=single decoding=default     -> IDENTICAL    (6.22s/run)
+  en_us_00000.wav        lang=en  mode=forced threads=single decoding=default     -> IDENTICAL    (3.48s/run)
+  te_in_00000.wav        lang=te  mode=forced threads=single decoding=no-fallback -> IDENTICAL    (14.56s/run)
+  hi_in_00000.wav        lang=hi  mode=forced threads=single decoding=no-fallback -> IDENTICAL    (5.98s/run)
+  en_us_00000.wav        lang=en  mode=forced threads=single decoding=no-fallback -> IDENTICAL    (3.27s/run)
+
+10/12 configurations produced byte-identical transcripts
+Wrote results\reproducibility.json

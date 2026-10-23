@@ -1,0 +1,156 @@
+{
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "runs_per_configuration": 3,
+  "versions": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "faster_whisper": "1.2.1",
+    "ctranslate2": "4.8.3",
+    "av": "18.1.0",
+    "jiwer": "4.0.0"
+  },
+  "decoding_configs": {
+    "default": "faster-whisper defaults; temperature fallback enabled",
+    "no-fallback": "temperature=0.0; beam search only, no sampling"
+  },
+  "results": [
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "default",
+      "runs": 3,
+      "identical": false,
+      "unique_outputs": 3,
+      "mean_processing_s": 32.66,
+      "transcripts": [
+        "் சாலா சந்தர்பாலோ விதேசாலும்  உ discharge rubbish,  நீ சந்தடேைச் சமாகத்திருகிறாய்  ஒன்ன தவுத்திற்கு வெள்ளே  நீ அவகா சாலானும்  வேருகு பற்சுகொ Pangாமத்து",
+        "పిఆఆపిaturesThодно అపరి�పటటఒయపభిదమయయ'  వామమయఒలఆ ప్యభయరలంపిపఆ యరయ seats  మాాాాాాాాాాాస Soph olika  నాాా 他er",
+        "喲 shortened"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "default",
+      "runs": 3,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 2.557,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "no-fallback",
+      "runs": 3,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 6.543,
+      "transcripts": [
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "no-fallback",
+      "runs": 3,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 2.717,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "default",
+      "runs": 3,
+      "identical": false,
+      "unique_outputs": 3,
+      "mean_processing_s": 41.653,
+      "transcripts": [
+        "ھا لہاں سندھر بھالوں,  ویدے سالوں وہاں گیاب  یا رکھورسلوں چیرے دم اللہ  میسوانت دیسم لہاں تریگی  اُن نتو ویدیگیک گئے  مییاں وہاں سالانوں  میرگو پرچکو آوچھا",
+        "Recognize that  Prime Minister has not repeated many challenges  Indure region is going to be your first  in India  next year",
+        "shala san darbaru ngang we mega intermittent  gyabu orворú otro district  listening us ךуг provーボ  ang semester  kayuru  ajala  const Artist iful  Hot رة  Hopard"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "default",
+      "runs": 3,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 5.003,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "no-fallback",
+      "runs": 3,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 10.236,
+      "transcripts": [
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "no-fallback",
+      "runs": 3,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 4.275,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    }
+  ]
+}

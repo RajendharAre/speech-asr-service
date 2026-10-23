@@ -1,0 +1,248 @@
+{
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "runs_per_configuration": 5,
+  "versions": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "faster_whisper": "1.2.1",
+    "ctranslate2": "4.8.3",
+    "av": "18.1.0",
+    "jiwer": "4.0.0"
+  },
+  "decoding_configs": {
+    "default": "faster-whisper defaults; temperature fallback enabled",
+    "no-fallback": "temperature=0.0; beam search only, no sampling"
+  },
+  "results": [
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "default",
+      "runs": 5,
+      "identical": false,
+      "unique_outputs": 5,
+      "mean_processing_s": 42.581,
+      "transcripts": [
+        "ژாลா சந்தர் பாலோ, விதுவு சாலோ, وہ கைப, یாப, یார் கோரச் சாரணமால,  می சவந்ததையும் திருகி, உன்ன தவித்தியாகக் குவெள்ள,  میயாவகா சாலானும் மறுகு பரچ்கோ வைத்து.",
+        "ԼԿԻԿԇԅœևց շ歷ևն։",
+        "दारे वो बूर्गवा वो बकाि नहीं, बहोर यह बरुर ऴिध़ नहीं, नहीं भो वो बड़ाशाला रहीं ये अफ प॥ीद थाढ़ नहीं, रहें ये ये पना नहीं परूड़ा वा नहें हैं.",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "बुण वाँ वए आछूुब करज्ने सरधिण पिप देस यपड यह यह इस वछाशा नटर यह पर चूव़़ आपु़़ हूच परसूचव होूव़ु़ुववू लगव हुबु़ु़ु़ूूूूूूूूूूूूूूूूूूूूूूूूूूूूूूू�"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "default",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 3.008,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "en_us_00000.wav",
+      "language": "en",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "default",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 1.588,
+      "transcripts": [
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite."
+      ]
+    },
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "no-fallback",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 7.222,
+      "transcripts": [
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "no-fallback",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 3.044,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "en_us_00000.wav",
+      "language": "en",
+      "language_mode": "forced",
+      "threads": "auto",
+      "cpu_threads": 0,
+      "decoding": "no-fallback",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 1.836,
+      "transcripts": [
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite."
+      ]
+    },
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "default",
+      "runs": 5,
+      "identical": false,
+      "unique_outputs": 5,
+      "mean_processing_s": 53.988,
+      "transcripts": [
+        "या वश भान स़ना़े आSpot  आप लेशवा बेः की Legion  न्मिनाद्xton from Sri Thailand",
+        "》Ź preservative 》",
+        "ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھالa ھال",
+        "neavaqa sala masan da messenger balo  vedays alla doe bafare galaf  veiyar kurss lo yarad amallar  hai saadhan activati  hai saadhan Suma tilli ki  invan natt natu vidyaku illa  üne aur broy to",
+        "ھا لا سندھر بھالا, ھا لا ہوا گیاپ, ھا ہوا چیرے گا۔  ھا ہوا چیرے گیاپ, ھا ہوا چیرے گا۔  ھا ہوا چیرے گا۔"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "default",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 7.336,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "en_us_00000.wav",
+      "language": "en",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "default",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 3.311,
+      "transcripts": [
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite."
+      ]
+    },
+    {
+      "clip": "te_in_00000.wav",
+      "language": "te",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "no-fallback",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 12.196,
+      "transcripts": [
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔",
+        "۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔ ۔"
+      ]
+    },
+    {
+      "clip": "hi_in_00000.wav",
+      "language": "hi",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "no-fallback",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 4.55,
+      "transcripts": [
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے",
+        "میجر کنگھانا پھومتیساگر میں سمان شیطروں کی طرح روٹی سبجیوں اور ماز  ویشے شروب سے سور کاماز پر آدارت ہے  اور جیتون کی ٹیل کھو پیوک کرتا ہے"
+      ]
+    },
+    {
+      "clip": "en_us_00000.wav",
+      "language": "en",
+      "language_mode": "forced",
+      "threads": "single",
+      "cpu_threads": 1,
+      "decoding": "no-fallback",
+      "runs": 5,
+      "identical": true,
+      "unique_outputs": 1,
+      "mean_processing_s": 2.809,
+      "transcripts": [
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite.",
+        "When you call someone who is thousands of miles away, you are using a satellite."
+      ]
+    }
+  ]
+}
