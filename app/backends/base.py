@@ -27,5 +27,14 @@ class Transcriber(ABC):
     name: str = "unnamed"
 
     @abstractmethod
-    def transcribe(self, audio_path: str, language: Optional[str] = None) -> TranscriptionResult:
-        """Transcribe the audio file at `audio_path`. `language=None` means auto-detect."""
+    def transcribe(
+        self,
+        audio_path: str,
+        language: Optional[str] = None,
+        initial_prompt: Optional[str] = None,
+    ) -> TranscriptionResult:
+        """Transcribe the audio file at `audio_path`. `language=None` means auto-detect.
+
+        `initial_prompt` is an optional hint for engines that support one, e.g. a short
+        sentence in the target script. Engines without such a feature may ignore it.
+        """

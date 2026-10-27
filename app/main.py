@@ -21,6 +21,7 @@ logger = logging.getLogger("speech_service")
 ALLOWED_EXTENSIONS = {".wav", ".mp3", ".m4a", ".flac", ".ogg", ".webm"}
 LANGUAGE_RE = re.compile(r"[a-z]{2,3}")
 CHUNK_BYTES = 1024 * 1024
+MAX_PROMPT_CHARS = 200
 
 app = FastAPI(
     title="Speech ASR Service",
@@ -66,6 +67,7 @@ def health(settings: Settings = Depends(get_settings)):
 def transcribe(
     file: UploadFile = File(...),
     language: Optional[str] = Form(default=None),
+    initial_prompt: Optional[str] = Form(default=None),
     settings: Settings = Depends(get_settings),
     transcriber: Transcriber = Depends(get_transcriber),
 ):
@@ -77,6 +79,11 @@ def transcribe(
         language = language.strip().lower()
         if not LANGUAGE_RE.fullmatch(language):
             raise HTTPException(400, "language must be a 2-3 letter code such as 'en', 'hi' or 'te'")
+
+    if initial_prompt is not None:
+        initial_prompt = initial_prompt.strip() or None
+    if initial_prompt is not None and len(initial_prompt) > MAX_PROMPT_CHARS:
+        raise HTTPException(400, f"initial_prompt must be at most {MAX_PROMPT_CHARS} characters")
 
     tmp_path: Optional[str] = None
     try:
@@ -96,7 +103,7 @@ def transcribe(
 
         started = time.perf_counter()
         try:
-            result = transcriber.transcribe(tmp_path, language=language)
+            result = transcriber.transcribe(tmp_path, language=language, initial_prompt=initial_prompt)
         except HTTPException:
             raise
         except ValueError:

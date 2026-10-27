@@ -31,8 +31,15 @@ class FasterWhisperTranscriber(Transcriber):
             cpu_threads=cpu_threads,
         )
 
-    def transcribe(self, audio_path: str, language: Optional[str] = None) -> TranscriptionResult:
+    def transcribe(
+        self,
+        audio_path: str,
+        language: Optional[str] = None,
+        initial_prompt: Optional[str] = None,
+    ) -> TranscriptionResult:
         transcribe_kwargs = {"language": language, "vad_filter": True}
+        if initial_prompt:
+            transcribe_kwargs["initial_prompt"] = initial_prompt
         if self.temperature is not None:
             transcribe_kwargs["temperature"] = self.temperature
             # Keep decoding deterministic when a fixed temperature is requested

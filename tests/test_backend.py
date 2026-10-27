@@ -13,7 +13,13 @@ class RecordingWhisperModel:
     def __init__(self, model_size_or_path, **kwargs):
         self.model_size_or_path = model_size_or_path
         self.kwargs = kwargs
+        self.transcribe_kwargs = None
         RecordingWhisperModel.instances.append(self)
+
+    def transcribe(self, audio_path, **kwargs):
+        self.transcribe_kwargs = kwargs
+        info = SimpleNamespace(language="hi", language_probability=0.9, duration=1.0)
+        return iter([]), info
 
 
 @pytest.fixture(autouse=True)
@@ -57,6 +63,24 @@ def test_model_is_constructed_once_per_transcriber():
     faster_whisper_backend.FasterWhisperTranscriber("base")
     faster_whisper_backend.FasterWhisperTranscriber("base", cpu_threads=1)
     assert len(RecordingWhisperModel.instances) == 2
+
+
+def test_initial_prompt_is_forwarded():
+    transcriber = faster_whisper_backend.FasterWhisperTranscriber("base")
+    transcriber.transcribe("clip.wav", language="hi", initial_prompt="यह एक हिंदी वाक्य है।")
+    assert RecordingWhisperModel.instances[-1].transcribe_kwargs["initial_prompt"] == "यह एक हिंदी वाक्य है।"
+
+
+def test_initial_prompt_defaults_to_absent():
+    transcriber = faster_whisper_backend.FasterWhisperTranscriber("base")
+    transcriber.transcribe("clip.wav", language="hi")
+    assert "initial_prompt" not in RecordingWhisperModel.instances[-1].transcribe_kwargs
+
+
+def test_empty_initial_prompt_is_not_forwarded():
+    transcriber = faster_whisper_backend.FasterWhisperTranscriber("base")
+    transcriber.transcribe("clip.wav", language="hi", initial_prompt="")
+    assert "initial_prompt" not in RecordingWhisperModel.instances[-1].transcribe_kwargs
 
 
 def test_get_transcriber_forwards_configured_cpu_threads(monkeypatch):

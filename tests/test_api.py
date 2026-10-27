@@ -18,10 +18,12 @@ class FakeTranscriber(Transcriber):
         self.fail = fail
         self.paths = []
         self.language = "unset"
+        self.prompt = "unset"
 
-    def transcribe(self, audio_path, language=None):
+    def transcribe(self, audio_path, language=None, initial_prompt=None):
         self.paths.append(audio_path)
         self.language = language
+        self.prompt = initial_prompt
         assert os.path.exists(audio_path), "temp file must exist while transcribing"
         if self.fail:
             raise RuntimeError("secret internal detail")
@@ -77,6 +79,36 @@ def test_language_is_forwarded_and_normalised(client, fake):
 def test_no_language_means_auto_detect(client, fake):
     post(client)
     assert fake.language is None
+
+
+def test_initial_prompt_is_forwarded_stripped(client, fake):
+    r = post(client, language="hi", initial_prompt="  यह एक हिंदी वाक्य है।  ")
+    assert r.status_code == 200
+    assert fake.prompt == "यह एक हिंदी वाक्य है।"
+
+
+def test_missing_initial_prompt_means_none(client, fake):
+    post(client)
+    assert fake.prompt is None
+
+
+def test_blank_initial_prompt_means_none(client, fake):
+    r = post(client, initial_prompt="   ")
+    assert r.status_code == 200
+    assert fake.prompt is None
+
+
+def test_overlong_initial_prompt_rejected_before_transcribing(client, fake):
+    r = post(client, initial_prompt="x" * 201)
+    assert r.status_code == 400
+    assert "200" in r.json()["detail"]
+    assert fake.paths == []
+
+
+def test_initial_prompt_at_limit_is_accepted(client, fake):
+    r = post(client, initial_prompt="x" * 200)
+    assert r.status_code == 200
+    assert fake.prompt == "x" * 200
 
 
 def test_invalid_language_rejected_before_transcribing(client, fake):

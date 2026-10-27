@@ -1,0 +1,7 @@
+# Only needed by scripts/prepare_dataset.py (FLEURS export). Keep these out of
+# requirements.txt, requirements-asr.txt and CI: the API and the model-free tests
+# do not need them.
+datasets>=2.19
+# Same PyAV pin as requirements-asr.txt: PyAV 19 dropped the `metadata_errors`
+# kwarg that faster-whisper still passes, and this script re-encodes audio with av.
+av>=12,<19

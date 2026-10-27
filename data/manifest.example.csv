@@ -1,4 +1,3 @@
-audio_path,reference,language
-audio/en_01.wav,my name is Rajendhar and I live in Hyderabad,en
-audio/hi_01.wav,मेरा नाम राजेंद्र है,hi
-audio/te_01.wav,నా పేరు రాజేంద్ర,te
+audio_path,reference,language,source
+audio/own/hi_01.m4a,"यह मेरा पहला हिंदी वाक्य है, और यह जानबूझकर थोड़ा लंबा है।",hi,own
+audio/own/te_01.m4a,ఇది నా మొదటి తెలుగు వాక్యం.,te,own

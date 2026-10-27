@@ -6,7 +6,9 @@ from app.evaluation import (
     file_error_rates,
     load_manifest,
     normalize,
+    script_share,
     summarize,
+    summarize_by_source,
     to_markdown,
 )
 
@@ -20,8 +22,54 @@ def test_normalize_keeps_indic_vowel_signs_and_strips_danda():
     assert normalize("नमस्ते। दुनिया") == "नमस्ते दुनिया"
 
 
-def make(ref, hyp, lang=None, dur=10.0, proc=5.0):
-    return FileResult("a.wav", lang, ref, hyp, dur, proc)
+def test_script_share_pure_devanagari_is_one():
+    assert script_share("यह एक हिंदी वाक्य है।", "hi") == 1.0
+
+
+def test_script_share_roman_hindi_is_zero():
+    assert script_share("yeh ek hindi vaakya hai", "hi") == 0.0
+
+
+def test_script_share_mixed_text_is_hand_computed_fraction():
+    # Devanagari: न म स ् त े = 6 letters/marks; Latin: w o r l d = 5.
+    assert script_share("नमस्ते world", "hi") == pytest.approx(6 / 11)
+
+
+def test_script_share_telugu_is_one():
+    assert script_share("ఇది ఒక తెలుగు వాక్యం.", "te") == 1.0
+
+
+@pytest.mark.parametrize(
+    "text,language",
+    [
+        ("hello world", "en"),
+        ("hello world", None),
+        ("", "hi"),
+        ("123 !!!", "hi"),
+        ("\u200d", "te"),
+    ],
+)
+def test_script_share_is_none_without_expected_script_or_letters(text, language):
+    assert script_share(text, language) is None
+
+
+def test_script_share_ignores_digits_punctuation_and_zero_width():
+    assert script_share("हिंदी 123, वाक्य!\u200d", "hi") == 1.0
+
+
+def test_corpus_script_share_is_character_weighted():
+    # 19 Latin letters (0 matched) + 6 Devanagari letters/marks (6 matched).
+    s = corpus_scores([make("x", "yeh ek hindi vaakya hai", "hi"), make("x", "नमस्ते", "hi")])
+    assert s["script_share"] == pytest.approx(6 / 25)
+
+
+def test_corpus_script_share_is_none_for_english():
+    s = corpus_scores([make("a b", "a b", "en")])
+    assert s["script_share"] is None
+
+
+def make(ref, hyp, lang=None, dur=10.0, proc=5.0, source=None):
+    return FileResult("a.wav", lang, ref, hyp, dur, proc, source)
 
 
 def test_wer_single_substitution():
@@ -86,8 +134,49 @@ def test_summary_groups_by_language():
 
 
 def test_markdown_contains_model_and_percentages():
-    md = to_markdown({"base": summarize([make("a b", "a b", "en"), make("c d", "c x", "te")])}, "note")
+    md = to_markdown({"fleurs": {"base": summarize([make("a b", "a b", "en"), make("c d", "c x", "te")])}}, "note")
     assert "| base | 2 |" in md and "%" in md and "note" in md and "WER by language" in md
+    assert "Script% by language" in md and "## Source: fleurs" in md
+
+
+def test_markdown_reports_each_source_separately():
+    fleurs = [make("a b", "a b", "en", source="fleurs")]
+    own = [make("c d", "c d", "en", source="own")]
+    md = to_markdown({"fleurs": {"base": summarize(fleurs)}, "own": {"base": summarize(own)}})
+    assert "## Source: fleurs" in md and "## Source: own" in md
+    assert md.count("| base | 1 |") == 2
+    assert "| base | 2 |" not in md  # never one combined WER across sources
+
+
+def test_markdown_shows_file_counts_next_to_language_metrics():
+    results = [make("a b", "a b", "en", source="own"), make("c d", "c d", "en", source="own")]
+    md = to_markdown({"own": {"base": summarize(results)}})
+    assert "| base | 0.0% (2) |" in md
+
+
+def test_markdown_warns_when_script_mismatch_dominates_wer():
+    bad = [make("a b c d e", "yeh ek hindi", "hi", source="fleurs")]
+    md = to_markdown({"fleurs": {"base": summarize(bad)}})
+    assert "script mismatch" in md and "recognition quality" in md
+    assert "Script% 0.0%" in md
+
+
+def test_markdown_has_no_warning_when_script_is_correct():
+    good = [make("नमस्ते दुनिया", "नमस्ते दुनिया", "hi", source="own")]
+    md = to_markdown({"own": {"base": summarize(good)}})
+    assert "Warnings:" not in md
+
+
+def test_summarize_by_source_keeps_sources_apart():
+    s = summarize_by_source(
+        [
+            make("a b", "a b", "hi", source="fleurs"),
+            make("c d", "c d", "te", source="fleurs"),
+            make("e f", "e f", "hi", source="own"),
+        ]
+    )
+    assert s["fleurs"]["n_files"] == 2
+    assert s["own"]["n_files"] == 1
 
 
 def test_load_manifest_resolves_relative_paths(tmp_path):
@@ -96,6 +185,19 @@ def test_load_manifest_resolves_relative_paths(tmp_path):
     rows = load_manifest(str(m))
     assert rows[0]["audio_path"] == str(tmp_path / "clips" / "a.wav")
     assert rows[0]["language"] == "en"
+
+
+def test_load_manifest_reads_optional_source(tmp_path):
+    m = tmp_path / "m.csv"
+    m.write_text("audio_path,reference,language,source\nclips/a.wav,hello there,EN,Own\n", encoding="utf-8")
+    rows = load_manifest(str(m))
+    assert rows[0]["source"] == "own"
+
+
+def test_load_manifest_source_defaults_to_none(tmp_path):
+    m = tmp_path / "m.csv"
+    m.write_text("audio_path,reference\nclips/a.wav,hello there\n", encoding="utf-8")
+    assert load_manifest(str(m))[0]["source"] is None
 
 
 def test_load_manifest_rejects_missing_column(tmp_path):
