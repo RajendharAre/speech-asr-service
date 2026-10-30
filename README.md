@@ -153,16 +153,19 @@ Recorded conclusion: nondeterminism is **not** caused by thread count. It comes 
 
 ## Results
 
-**Not run yet.**
+First evaluation: 12 clips from Google FLEURS (4 English, 4 Hindi, 4 Telugu), one run per variant, CPU only (int8).
 
-No metric is recorded here until it comes from a real `scripts.evaluate` run on this machine. To produce it:
+[paste the tables from results/summary.md here]
 
-```powershell
-Copy-Item data\prompts.example.json data\prompts.json
-.\.venv\Scripts\python.exe -m scripts.evaluate --manifest data/manifest.csv --model-sizes base small --prompts-json data/prompts.json
-```
+What this shows:
+- Without a prompt, base put 0.0% of its Hindi and Telugu letters in the expected script. A native-script prompt raised that to 100% (Hindi) and 76.1% (Telugu) on base.
+- Script and recognition are separate problems. Telugu WER stayed at or above 100% even when small+prompt had 100% correct script, while Hindi WER fell from 91.4% (base+prompt) to 53.1% (small+prompt), which points to model size.
 
-Then paste `results/summary.md`. Every table row carries its file count; keep them attached when you quote a number. Numbers from a single clip, or from another machine, are not results.
+Limits:
+- 4 clips per language, one run, no confidence intervals.
+- FLEURS is read speech and may overlap Whisper's training data. Own recordings are planned as a second test.
+- Hindi and Telugu WER is sensitive to spelling variants and normalization.
+- RTF was timed once on one laptop. Prompting raised base's RTF from 0.51 to 1.74; I have not investigated why. Render free-tier timings are not comparable.
 
 ## Design notes
 
@@ -195,21 +198,7 @@ tests/                         API, scoring, CLI, dataset-prep and configuration
 
 ```
 
-## Results
 
-First evaluation: 12 clips from Google FLEURS (4 English, 4 Hindi, 4 Telugu), one run per variant, CPU only (int8).
-
-[paste the tables from results/summary.md here]
-
-What this shows:
-- Without a prompt, base put 0.0% of its Hindi and Telugu letters in the expected script. A native-script prompt raised that to 100% (Hindi) and 76.1% (Telugu) on base.
-- Script and recognition are separate problems. Telugu WER stayed at or above 100% even when small+prompt had 100% correct script, while Hindi WER fell from 91.4% (base+prompt) to 53.1% (small+prompt), which points to model size.
-
-Limits:
-- 4 clips per language, one run, no confidence intervals.
-- FLEURS is read speech and may overlap Whisper's training data. Own recordings are planned as a second test.
-- Hindi and Telugu WER is sensitive to spelling variants and normalization.
-- RTF was timed once on one laptop. Prompting raised base's RTF from 0.51 to 1.74; I have not investigated why. Render free-tier timings are not comparable.
 
 ## Limitations
 
